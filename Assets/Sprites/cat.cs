@@ -24,7 +24,6 @@ public class cat : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Debug.Log("start");
     }
 
     private void FixedUpdate()
@@ -43,7 +42,6 @@ public class cat : MonoBehaviour
             if (Input.GetKey(KeyCode.UpArrow)|Input.GetKey(KeyCode.W))
             {
                 isClimbing = true;
-                Debug.Log("climbing");
             }
         } else{
             isClimbing = false;
