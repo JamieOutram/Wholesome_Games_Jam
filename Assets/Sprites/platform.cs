@@ -9,16 +9,17 @@ public class platform : MonoBehaviour
 
     public float limits = 4f; 
     public float moveSpeed = 3f;
-    bool moveRight = true;
+    //bool moveRight = true;
     public float playerHeight;
-    Rigidbody2D catPaws;
-    Rigidbody2D catFeet;
+    //Rigidbody2D catPaws;
+    //Rigidbody2D catFeet;
+    Rigidbody2D rb;
     float direction;
     
     private void Start()
     {
         direction = 1;
-
+        rb = GetComponent<Rigidbody2D>();
     }
 
     //call once per frame
@@ -32,15 +33,17 @@ public class platform : MonoBehaviour
         {
             direction = 1;
         }
-        transform.position += new Vector3(direction * moveSpeed * Time.fixedDeltaTime, 0);
+        rb.MovePosition(transform.position + new Vector3(direction * moveSpeed * Time.fixedDeltaTime, 0));
         //Debug.Log(catPaws);
+        /*
         if (catPaws != null && !PlayerController.isJumping)
             catPaws.position += new Vector2(direction * moveSpeed * Time.fixedDeltaTime, 0);
         if (catFeet != null && !PlayerController.isJumping)
             catFeet.position += new Vector2(direction * moveSpeed * Time.fixedDeltaTime, 0);
-
+        */
     }
 
+    /*
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
@@ -62,7 +65,7 @@ public class platform : MonoBehaviour
         }
             
     }
-
+    
     private void OnCollisionExit2D(Collision2D collision)
     {
         Debug.Log("OnCollisionExit2D called");
@@ -77,5 +80,5 @@ public class platform : MonoBehaviour
         
         
     }
-
+    */
 }

@@ -67,7 +67,7 @@ public class CatMovement : MonoBehaviour
             case LaunchingStates.flying:
                 if (isFalling)
                 {
-                    if (head.velocity.magnitude <= 0.01f)
+                    if (Mathf.Abs(head.velocity.y) <= 0.01f)
                     {
                         isFalling = false;
                         feetCollider.isTrigger = true;
@@ -138,6 +138,8 @@ public class CatMovement : MonoBehaviour
     void OnFlingEnd()
     {
         isFalling = true;
+        head.velocity = Vector2.zero;
+        feet.velocity = Vector2.zero;
         GrabTrigger.ResetGrab();
     }
 
