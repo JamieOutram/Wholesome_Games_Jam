@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Grabable
-  - OneWayPlatform
   layers:
   - Default
   - TransparentFX
@@ -15,12 +14,19 @@ TagManager:
   - UI
   - 
   - 
+<<<<<<< HEAD
   - CatHead
   - CatLegs
   - Grabable
   - Grabber
+=======
   - Ladder
   - Ground
+  - 
+  - 
+>>>>>>> origin/platform
+  - 
+  - 
   - 
   - 
   - 

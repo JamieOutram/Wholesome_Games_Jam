@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Transactions;
 using UnityEngine;
 
 public class cat : MonoBehaviour
 {
+    Rigidbody2D currentPlatformRb;
     Rigidbody2D rb;
     public float moveSpeed = 20;
     private float dirX, dirY;
@@ -30,9 +32,12 @@ public class cat : MonoBehaviour
     {
         dirX = Input.GetAxisRaw("Horizontal");
 
+        //if (currentPlatformRb != null)
+            //rb.velocity = currentPlatformRb.velocity;
+        
         //if (Input.GetButtonDown("Jump") && rb.velocity.y == 0)
         // rb.AddForce(Vector2.up * 500f);
-
+        /*
         rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
 
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, distance, whatIsLadder);
@@ -55,10 +60,12 @@ public class cat : MonoBehaviour
         } else{
             rb.gravityScale = 5;
         }
+        */
     }
 
     private void Update()
     {
+        /*
         isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
         if(isGrounded == true && Input.GetKeyDown(KeyCode.Space))
         {
@@ -84,17 +91,20 @@ public class cat : MonoBehaviour
         {
             isJumping = false;
         }
+        */
     }
 
+    /*
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name.Equals("platform"))
-            this.transform.parent = collision.transform;
+            currentPlatformRb = collision.rigidbody;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.name.Equals("platform"))
-            this.transform.parent = null;
+            currentPlatformRb = null;
     }
+    */
 }

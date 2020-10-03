@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static bool isJumping;
     CatMovement movement;
     
     void Awake()
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
         {
             if (movement.state == LaunchingStates.power)
             {
+                isJumping = true;
                 movement.Fling();
                 movement.NextState();
             }

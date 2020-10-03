@@ -19,6 +19,8 @@ public class HeadBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        movement.CancelFling();
+        Debug.Log("Head Behaviour OnCollisionEnterCalled");
+        if(!collision.transform.CompareTag("OneWayPlatform"))
+            movement.CancelFling();
     }
 }
