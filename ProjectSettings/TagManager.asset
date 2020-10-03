@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Grabable
   - OneWayPlatform
+  - Butt
+  - Head
   layers:
   - Default
   - TransparentFX

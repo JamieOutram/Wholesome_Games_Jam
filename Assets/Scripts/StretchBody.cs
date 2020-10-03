@@ -9,6 +9,7 @@ public class StretchBody : MonoBehaviour
     public Transform head;
     SpriteRenderer sprite;
     public float bodySizeOffset;
+    public float bodySlideOffset;
     public Vector2 bodyPositionOffset;
 
     private void Awake()
@@ -25,9 +26,9 @@ public class StretchBody : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = (head.position - feet.position)/2 + feet.position + (Vector3)bodyPositionOffset;
+        transform.position = (head.position - feet.position)/2 + feet.position + (Vector3)bodyPositionOffset + bodySlideOffset*(head.position - feet.position).normalized;
         transform.rotation = Quaternion.Euler(0,0, Vector2.SignedAngle(Vector2.up, head.position - feet.position));
         sprite.size = new Vector2(1, (head.position - feet.position).magnitude + bodySizeOffset);
-
+        
     }
 }
