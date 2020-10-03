@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    CatMovement movement;
     
-    
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        movement = GetComponent<CatMovement>();
     }
 
     // Update is called once per frame
@@ -17,11 +16,19 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (movement.state == LaunchingStates.aiming)
+            {
+                movement.NextState();
+            }
             //aiming state -> power state
             //if in aiming state freeze arrow position and start power state
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
+            if (movement.state == LaunchingStates.power)
+            {
+                movement.NextState();
+            }
             //power state -> stretch state
             //trigger stretch with direction and power
 
