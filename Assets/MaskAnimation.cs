@@ -13,7 +13,6 @@ public class MaskAnimation : MonoBehaviour
     void Start()
     {
         ResetMask();
-        transform.localScale = Vector3.zero;
     }
 
     // Update is called once per frame
@@ -30,7 +29,7 @@ public class MaskAnimation : MonoBehaviour
 
     public void ResetMask()
     {
-        transform.localScale = new Vector3(0, 0, 0);
+        transform.localScale = Vector3.zero;
         transform.localPosition = new Vector3(-offsetSpeed, 0, 0);
         direction = 1;
     }

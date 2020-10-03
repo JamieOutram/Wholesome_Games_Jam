@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
         {
             if (movement.state == LaunchingStates.power)
             {
+                movement.Fling();
                 movement.NextState();
             }
             //power state -> stretch state

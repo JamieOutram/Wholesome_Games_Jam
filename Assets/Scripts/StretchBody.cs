@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class StretchBody : MonoBehaviour
     public Transform head;
     SpriteRenderer sprite;
     public float bodySizeOffset;
+    public Vector2 bodyPositionOffset;
 
     private void Awake()
     {
@@ -23,7 +25,7 @@ public class StretchBody : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = (head.position - feet.position)/2 + feet.position;
+        transform.position = (head.position - feet.position)/2 + feet.position + (Vector3)bodyPositionOffset;
         transform.rotation = Quaternion.Euler(0,0, Vector2.SignedAngle(Vector2.up, head.position - feet.position));
         sprite.size = new Vector2(1, (head.position - feet.position).magnitude + bodySizeOffset);
 
