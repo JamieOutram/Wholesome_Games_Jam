@@ -21,6 +21,7 @@ public class CatMovement : MonoBehaviour
     public float rotationSpeed;
     public float maxLaunchDistance;
     public float extendTime;
+    public float hangDistance;
     public Rigidbody2D head;
     public Rigidbody2D feet;
     public Collider2D feetCollider;
@@ -129,20 +130,22 @@ public class CatMovement : MonoBehaviour
 
     public void Fling()
     {
+        HoldPosition(false);
         Vector2 path = launcher.transform.localPosition.normalized * PowerBarMask.transform.localScale.x * maxLaunchDistance;
-
-        tw = head.DOMove((Vector2)transform.position + path, extendTime).SetEase(Ease.OutQuad).OnComplete(OnFlingEnd);
+        tw = head.DOMove((Vector2)head.transform.position + path, extendTime).SetEase(Ease.OutQuad).OnComplete(OnFlingEnd);
     }
 
     void OnFlingEnd()
     {
         isFalling = true;
+        GrabTrigger.ResetGrab();
     }
 
     void OnFollowComplete()
     {
         feetCollider.isTrigger = false;
-        NextState();
+
+        SetState(LaunchingStates.aiming);
     }
 
     public void CancelFling()
@@ -156,5 +159,37 @@ public class CatMovement : MonoBehaviour
             }
         }
     }
+
+    public void Grab()
+    {
+        Debug.Log("Grab Called");
+        if(tw != null)
+        {
+            if (tw.active) {
+                tw.Kill();   
+            }
+        }
+        isFalling = false;
+        feetCollider.isTrigger = true;
+        tw = feet.DOMove(head.transform.position-Vector3.up*hangDistance, extendTime).SetEase(Ease.OutQuad).OnComplete(OnFollowComplete);
+        HoldPosition(true);
+
+    }
     
+    public void HoldPosition(bool hold)
+    {
+        if (hold)
+        {
+            head.gravityScale = 0;
+            head.velocity = Vector2.zero;
+            feet.gravityScale = 0;
+            feet.velocity = Vector2.zero;
+        }
+        else
+        {
+            head.gravityScale = 1;
+            feet.gravityScale = 1;
+        }
+    }
+
 }
