@@ -18,4 +18,9 @@ public class exitMsg : MonoBehaviour
         TransitionBehaviour.TriggerFade("End Credits");
         //SceneManager.LoadScene("End Credits");
     }
+
+    public void OnUserClickExit()
+    {
+        Application.OpenURL("about:blank");
+    }
 }
