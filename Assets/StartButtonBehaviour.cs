@@ -7,7 +7,7 @@ public class StartButtonBehaviour : MonoBehaviour
 {
     public void ButtonClicked()
     {
-        TransitionBehaviour.TriggerFade("JamieTest");
+        TransitionBehaviour.TriggerFade("Full");
         //SceneManager.LoadScene("JamieTest");
     }
 }

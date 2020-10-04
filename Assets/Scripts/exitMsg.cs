@@ -9,11 +9,13 @@ public class exitMsg : MonoBehaviour
 
     public void onUserClickStart()
     {
-        SceneManager.LoadScene("Start Menu");
+        TransitionBehaviour.TriggerFade("Start Menu");
+        //SceneManager.LoadScene("Start Menu");
     }
 
     public void onUserClickCredit()
     {
-        SceneManager.LoadScene("End Credits");
+        TransitionBehaviour.TriggerFade("End Credits");
+        //SceneManager.LoadScene("End Credits");
     }
 }
