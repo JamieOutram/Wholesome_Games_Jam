@@ -5,14 +5,30 @@ using UnityEngine;
 public class tunapickup : MonoBehaviour
 {
 
-    public void OnTriggerEnter2D(Collider2D other)
+    public Canvas exitCanvas;
+
+    void Start()
     {
-        Debug.Log("tuna");
-        if (other.name == "cat")
-        {
-            Application.Quit();
-            //SceneManager.LoadScene("Game Over");
-        }
+        exitCanvas.enabled = false;
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+            TurnOnExit();
+    }
+
+    private void TurnOnExit()
+    {
+        exitCanvas.enabled = true;
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+            TurnOffExit();
+    }
+
+    private void TurnOffExit()
+    {
+        exitCanvas.enabled = false;
+    }
 }
