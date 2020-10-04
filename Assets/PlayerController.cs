@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             if (movement.state == LaunchingStates.aiming)
             {
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
             //aiming state -> power state
             //if in aiming state freeze arrow position and start power state
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))
         {
             if (movement.state == LaunchingStates.power)
             {
@@ -36,5 +36,6 @@ public class PlayerController : MonoBehaviour
             //trigger stretch with direction and power
 
         }
+        
     }
 }
