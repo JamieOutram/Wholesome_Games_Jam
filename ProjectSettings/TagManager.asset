@@ -23,7 +23,7 @@ TagManager:
   - Grabber
   - Ladder
   - Ground
-  - 
+  - Walls
   - 
   - 
   - 
@@ -44,4 +44,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Platforms
+    uniqueID: 2931718551
+    locked: 0
+  - name: Character
+    uniqueID: 2404181583
+    locked: 0
+  - name: Grabbable
+    uniqueID: 80660273
+    locked: 0
+  - name: UI
+    uniqueID: 1800668331
     locked: 0

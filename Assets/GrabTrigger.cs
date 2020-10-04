@@ -9,7 +9,7 @@ public class GrabTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("OnCollisionEnterCalled");
+        //Debug.Log("OnCollisionEnterCalled");
         if (!ReferenceEquals(grabbedObj, collider))
         {
             if (collider.CompareTag("Grabable"))
