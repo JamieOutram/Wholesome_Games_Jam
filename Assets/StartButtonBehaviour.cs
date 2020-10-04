@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class StartButtonBehaviour : MonoBehaviour
 {
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class StartButtonBehaviour : MonoBehaviour
 
     public void ButtonClicked()
     {
-        SceneManager.LoadScene("JamieTest");
+        TransitionBehaviour.TriggerFade("JamieTest");
+        //SceneManager.LoadScene("JamieTest");
     }
 }
