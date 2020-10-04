@@ -13,7 +13,7 @@ public class encouragement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.name == "cat")
+        if (other.CompareTag("Head"))
         {
             TurnOnMessage();
         }
