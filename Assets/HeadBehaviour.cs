@@ -22,5 +22,23 @@ public class HeadBehaviour : MonoBehaviour
         //Debug.Log("Head Behaviour OnCollisionEnterCalled");
         if(!collision.transform.CompareTag("OneWayPlatform"))
             movement.CancelFling();
+        
+        
+        if (collision.collider.CompareTag("Ground") ||
+            collision.collider.CompareTag("OneWayPlatform") ||
+            collision.collider.CompareTag("Grabable"))
+        {
+            movement.isGrounded = true;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Ground") ||
+            collision.collider.CompareTag("OneWayPlatform") ||
+            collision.collider.CompareTag("Grabable"))
+        {
+            movement.isGrounded = false;
+        }
     }
 }

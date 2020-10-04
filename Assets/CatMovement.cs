@@ -25,7 +25,7 @@ public class CatMovement : MonoBehaviour
 
     public LaunchingStates state;
 
-
+    public bool isGrounded;
     bool isFalling;
     Tween tw;
     Animator launcherAnimator;
@@ -43,6 +43,7 @@ public class CatMovement : MonoBehaviour
     {
         //Debug.Log(string.Format("CurrentAngle:{0}", currentAngle));
         //currentAngle = Vector2.SignedAngle(Vector2.left, (Vector2)launcher.transform.position - feet.position);
+        
         switch (state)
         {
             case LaunchingStates.aiming:
@@ -62,8 +63,9 @@ public class CatMovement : MonoBehaviour
             case LaunchingStates.flying:
                 if (isFalling)
                 {
-                    if (Mathf.Abs(head.velocity.y) <= 0.01f)
+                    if (Mathf.Abs(head.velocity.y) <= 0.01f && isGrounded)
                     {
+                        Debug.Log("Transition to Aiming Started");
                         isFalling = false;
                         feetCollider.isTrigger = true;
                         tw = feet.DOMove(head.transform.position, extendTime).SetEase(Ease.OutQuad).OnComplete(OnFollowComplete);
