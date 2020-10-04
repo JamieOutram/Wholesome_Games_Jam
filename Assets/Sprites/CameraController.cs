@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    public float minHeight;
     public GameObject player;
     private float verticalOffset;
 
@@ -16,6 +17,10 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        transform.position = new Vector3(0,player.transform.position.y+verticalOffset,-10);
+        if(minHeight > player.transform.position.y + verticalOffset)
+            transform.position = new Vector3(0, minHeight, -10);
+        else 
+            transform.position = new Vector3(0, player.transform.position.y + verticalOffset, -10);
     }
+
 }
