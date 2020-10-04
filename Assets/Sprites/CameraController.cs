@@ -7,11 +7,12 @@ public class CameraController : MonoBehaviour
     public float minHeight;
     public GameObject player;
     private float verticalOffset;
+    
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        minHeight = transform.position.y;
     }
 
     // Update is called once per frame
