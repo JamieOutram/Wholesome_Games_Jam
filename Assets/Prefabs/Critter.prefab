@@ -114,7 +114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messageCanvas: {fileID: 3491953173699697146}
   whatAmI: 0
-  convoNumber: 0
+  convoNumber: 1
+  text: {fileID: 3491953173523386181}
 --- !u!1001 &2210475402653361476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -386,3 +387,15 @@ Canvas:
     type: 3}
   m_PrefabInstance: {fileID: 2210475402653361476}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3491953173523386181 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3375667014643001857, guid: ac3a9bd0f6755ca4c9dff60f92689963,
+    type: 3}
+  m_PrefabInstance: {fileID: 2210475402653361476}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
