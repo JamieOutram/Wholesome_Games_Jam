@@ -13,8 +13,11 @@ public class StretchBody : MonoBehaviour
     public float bodySlideOffset;
     public Vector2 bodyPositionOffset;
 
+    Animator anim;
+
     private void Awake()
     {
+        anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
     }
 
@@ -30,6 +33,13 @@ public class StretchBody : MonoBehaviour
         transform.position = (head.position - feet.position)/2 + feet.position + (Vector3)bodyPositionOffset + bodySlideOffset*(head.position - feet.position).normalized;
         transform.rotation = Quaternion.Euler(0,0, Vector2.SignedAngle(Vector2.up, head.position - feet.position));
         sprite.size = new Vector2(bodyWidth, (head.position - feet.position).magnitude + bodySizeOffset);
+        UpdateAnimation();
+    }
+
+    void UpdateAnimation()
+    {
+        anim.SetFloat("Angle", Vector2.SignedAngle(Vector2.up, head.position - feet.position));
         
     }
+
 }

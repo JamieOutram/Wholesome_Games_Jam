@@ -20,6 +20,24 @@ TextureImporter:
   - first:
       213: -1361203630037893450
     second: AliceBody
+  - first:
+      213: -4526184282758646254
+    second: AliceBody_1
+  - first:
+      213: -340997756702418538
+    second: AliceBody_2
+  - first:
+      213: -2820627190432784632
+    second: AliceBody_3
+  - first:
+      213: 7772303593140437869
+    second: AliceBody_4
+  - first:
+      213: -5054397166582068318
+    second: AliceBody_5
+  - first:
+      213: -2549254404432031531
+    second: AliceBody_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -225,19 +243,145 @@ TextureImporter:
       name: AliceBody
       rect:
         serializedVersion: 2
-        x: 79
-        y: 1
-        width: 67
-        height: 160
+        x: 84
+        y: 2
+        width: 57
+        height: 158
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 55, z: 0, w: 66}
+      border: {x: 0, y: 55, z: 0, w: 57}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 6be7e9ca2880c1de0800000000000000
       internalID: -1361203630037893450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AliceBody_1
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 2
+        width: 57
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 55, z: 0, w: 57}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 216f6362063cf21c0800000000000000
+      internalID: -4526184282758646254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AliceBody_2
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 2
+        width: 57
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 55, z: 0, w: 57}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6991c82d858844bf0800000000000000
+      internalID: -340997756702418538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AliceBody_3
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 2
+        width: 57
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 55, z: 0, w: 57}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80f127eb38e1bd8d0800000000000000
+      internalID: -2820627190432784632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AliceBody_4
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 2
+        width: 57
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 55, z: 0, w: 57}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d63c0a340f4ccdb60800000000000000
+      internalID: 7772303593140437869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AliceBody_5
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 2
+        width: 57
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 55, z: 0, w: 57}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ab822c6e8c2bd9b0800000000000000
+      internalID: -5054397166582068318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AliceBody_6
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 2
+        width: 57
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 55, z: 0, w: 57}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d09abd20aa3f9cd0800000000000000
+      internalID: -2549254404432031531
       vertices: []
       indices: 
       edges: []
