@@ -8,10 +8,12 @@ public class MaskAnimation : MonoBehaviour
     public float scaleSpeed = 0.1f;
     public float offsetSpeed = 0.05f;
 
+    private float startOffset;
     private int direction;
     // Start is called before the first frame update
     void Start()
     {
+        startOffset = transform.localPosition.x;
         ResetMask();
     }
 
@@ -22,7 +24,7 @@ public class MaskAnimation : MonoBehaviour
         nextScale = Mathf.Clamp(nextScale, 0, 1);
         if(nextScale == 1) direction = -1;
         else if (nextScale == 0) direction = 1;
-        transform.localScale = new Vector3(nextScale,nextScale,1);
+        transform.localScale = new Vector3(1,nextScale,1);
         transform.localPosition += Vector3.right*offsetSpeed*direction*Time.deltaTime;
 
     }
@@ -30,7 +32,7 @@ public class MaskAnimation : MonoBehaviour
     public void ResetMask()
     {
         transform.localScale = Vector3.zero;
-        transform.localPosition = new Vector3(-offsetSpeed, 0, 0);
+        transform.localPosition = new Vector3(startOffset, 0, 0);
         direction = 1;
     }
 }

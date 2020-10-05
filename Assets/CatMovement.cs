@@ -63,12 +63,10 @@ public class CatMovement : MonoBehaviour
             case LaunchingStates.flying:
                 if (isFalling)
                 {
-                    if (Mathf.Abs(head.velocity.y) <= 0.01f && isGrounded)
+                    
+                    if (Mathf.Abs(head.velocity.y) <= 0.01f && isGrounded && !IsInvoking("CheckGrounded"))
                     {
-                        Debug.Log("Transition to Aiming Started");
-                        isFalling = false;
-                        feetCollider.isTrigger = true;
-                        tw = feet.DOMove(head.transform.position, extendTime).SetEase(Ease.OutQuad).OnComplete(OnFollowComplete);
+                        Invoke("CheckGrounded", extendTime);
                     }
                 }
                 break;
@@ -77,6 +75,16 @@ public class CatMovement : MonoBehaviour
                 break;
         }
         
+    }
+
+    void CheckGrounded()
+    {
+        if(Mathf.Abs(head.velocity.y) <= 0.01f && isGrounded)
+        {
+            //Debug.Log("Transition to Aiming Started");
+            isFalling = false;
+            SetState(LaunchingStates.aiming);
+        }
     }
 
     public void NextState()
@@ -128,7 +136,7 @@ public class CatMovement : MonoBehaviour
     public void Fling()
     {
         HoldPosition(false);
-        Vector2 path = launcher.transform.localPosition.normalized * PowerBarMask.transform.localScale.x * maxLaunchDistance;
+        Vector2 path = launcher.transform.localPosition.normalized * PowerBarMask.transform.localScale.y * maxLaunchDistance;
         tw = head.DOMove((Vector2)head.transform.position + path, extendTime).SetEase(Ease.OutQuad).OnComplete(OnFlingEnd);
     }
 
@@ -138,12 +146,20 @@ public class CatMovement : MonoBehaviour
         head.velocity = Vector2.zero;
         feet.velocity = Vector2.zero;
         GrabTrigger.ResetGrab();
+        feetCollider.isTrigger = true;
+        tw = feet.DOMove(head.transform.position, extendTime).SetEase(Ease.OutQuad).OnComplete(OnFollowComplete);
     }
 
     void OnFollowComplete()
     {
         feetCollider.isTrigger = false;
+        feet.gravityScale = 1;
+        
+    }
 
+    void OnFollowGrabComplete()
+    {
+        feetCollider.isTrigger = false;
         SetState(LaunchingStates.aiming);
     }
 
@@ -170,7 +186,7 @@ public class CatMovement : MonoBehaviour
         }
         isFalling = false;
         feetCollider.isTrigger = true;
-        tw = feet.DOMove(head.transform.position-Vector3.up*hangDistance, extendTime).SetEase(Ease.OutQuad).OnComplete(OnFollowComplete);
+        tw = feet.DOMove(head.transform.position-Vector3.up*hangDistance, extendTime).SetEase(Ease.OutQuad).OnComplete(OnFollowGrabComplete);
         HoldPosition(true);
 
     }
@@ -187,7 +203,7 @@ public class CatMovement : MonoBehaviour
         else
         {
             head.gravityScale = 1;
-            feet.gravityScale = 1;
+            //feet.gravityScale = 1;
         }
     }
 
