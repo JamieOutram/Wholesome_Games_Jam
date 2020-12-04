@@ -5212,6 +5212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minHeight: 0
   player: {fileID: 1516109295}
+  verticalOffset: 2
 --- !u!1 &1664007700
 GameObject:
   m_ObjectHideFlags: 0
