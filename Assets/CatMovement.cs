@@ -16,6 +16,7 @@ public class CatMovement : MonoBehaviour
     public float rotationSpeed;
     public float maxLaunchDistance;
     public float extendTime;
+    public float groundCheckDelay;
     public float hangDistance;
     public Rigidbody2D head;
     public Rigidbody2D feet;
@@ -63,10 +64,9 @@ public class CatMovement : MonoBehaviour
             case LaunchingStates.flying:
                 if (isFalling)
                 {
-                    
                     if (Mathf.Abs(head.velocity.y) <= 0.01f && isGrounded && !IsInvoking("CheckGrounded"))
                     {
-                        Invoke("CheckGrounded", extendTime);
+                        Invoke("CheckGrounded", groundCheckDelay);
                     }
                 }
                 break;
